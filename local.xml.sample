@@ -1,0 +1,21 @@
+<!-- Copy this file to local.xml and edit there to avoid -->
+<!-- your machine-local changes to mess with cvs         -->
+
+<!-- LOCAL PROPERTIES  -->
+
+<!-- 
+<property 
+	name="build.compiler" 
+	value="org.eclipse.pde.internal.core.JDTCompilerAdapter"/> 
+-->
+
+<property
+        name="j3dedit.jar.location"
+        value="c:/projects/j3dfly/java3d/J3dEditor_2.0/lib/j3dedit.jar"/>
+
+<property
+        name="j3dfly.jar.location"
+        value="c:/projects/j3dfly/java3d/J3dFly_2.0/lib/j3dfly.jar;c:/projects/j3dfly/java3d/J3dFly_2.0/lib/j3dfly-utils.jar"/>
+
+
+<!-- END OF LOCAL PROPERTIES -->

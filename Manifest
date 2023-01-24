@@ -1,0 +1,5 @@
+Main-class: net.sf.nwn.viewer.Main
+J3dFly-Plugins: net/sf/nwn/j3dfly/plugin.xml
+J3dEditor-Config: net/sf/nwn/j3dedit/config.xml
+
+

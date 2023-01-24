@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE project [
+    <!ENTITY local-properties SYSTEM "local.xml">
+]>
+
+
+<project basedir="." default="all" name="NWN Model Parser">
+
+  &local-properties;
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+  </target>
+
+ 
+
+  <target depends="init" name="compile.sources">
+    <javac 
+       srcdir="src" destdir="src"
+       debug="true"
+       excludes="net/sf/nwn/j3dedit/*,net/sf/nwn/j3dfly/*"/>
+  </target>
+
+  <target depends="compile.sources" name="all">
+  </target>
+
+  <target depends="init" name="compile.sources.all">
+    <javac 
+       srcdir="src" 
+       destdir="src"
+       debug="true"
+       classpath="${j3dedit.jar.location};${j3dfly.jar.location}"/>
+  </target>
+
+  <target name="jars" depends="compile.sources.all">
+    <mkdir dir="lib"/> 
+    <jar jarfile="lib/nwn.jar"
+       basedir="src"
+       manifest="Manifest"
+       includes="**/*.class, net/sf/nwn/j3dedit/config.xml, net/sf/nwn/j3dfly/plugin.xml"
+       excludes="com/sun/j3d/demos/utils/scenegraph/io/**"
+    />
+    <jar jarfile="lib/nwnsrc.zip"
+       basedir="."
+       includes="src/**/*.java,build.xml,jacobe.cfg,local.xml.sample,Manifest"
+    />
+  </target> 
+
+  <target depends="init" name="jacobe">
+    <exec executable="jacobe">
+       <arg line="-cfg=jacobe.cfg -overwrite -nobackup src\net\sf\nwn\loader\*.java src\net\sf\nwn\viewer\*.java"/>
+    </exec>
+  </target>
+
+</project>
